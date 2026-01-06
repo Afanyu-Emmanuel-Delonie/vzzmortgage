@@ -1,0 +1,24 @@
+import React from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import PathToClosing from './components/PathToClosing'
+import FirstHomeBuyers from './components/FirstHomeBuyers'
+import MortgageCalculator from './components/MortgageCalculator'
+import RatesCTA from './components/RatesCTA'
+import TrustBuilder from './components/TrustBuilder'
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <PathToClosing />
+      <FirstHomeBuyers />
+      <MortgageCalculator />
+      <RatesCTA />
+      <TrustBuilder />
+    </>
+  )
+}
+
+export default App

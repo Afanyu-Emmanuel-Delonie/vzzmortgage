@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F9FA ;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+@layer utilities{
+    .container {
+        @apply px-2 sm:px-3 md:px-4 lg:px-0 mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1130px] 2xl:max-w-[1340px];
+        width: 100%;
+    }
+    
+    p, .list-text {
+        @apply text-sm sm:text-base md:text-[16px] text-[#1111111];
+    }
+    
+    button {
+        @apply cursor-pointer;
+    }
+    
+    .section {
+        @apply pt-15 md:pt-[50px];
+    }
+    
+    h1, h2, h3, h4 {
+        @apply font-bold leading-tight text-balance;
+    }
+    
+    h2 {
+        @apply text-3xl text-white;
+    }
+    
+    h4 {
+        @apply text-xl font-semibold text-white;
+    }
+}
+
