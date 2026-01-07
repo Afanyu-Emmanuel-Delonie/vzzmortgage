@@ -15,9 +15,9 @@ function TrustBuilder() {
 
             <div className='flex flex-col justify-between w-full lg:w-1/2 bg-[#102044] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg text-white'>
                 <div>
-                  <h2 className='text-3xl sm:text-4xl font-bold mb-8'>A Simpler Mortgage Experience</h2>
+                  <h2 className='text-2xl sm:text-4xl font-bold mb-8'>A Simpler Mortgage Experience</h2>
                   
-                  <div className='space-y-6 mb-4'>
+                  <div className='space-y-6 mb-6'>
                     <div className='flex gap-4'>
                       <div className='flex-shrink-0'>
                         <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -38,7 +38,7 @@ function TrustBuilder() {
                       </div>
                       <div>
                         <h3 className='text-xl font-semibold mb-2'>A Faster, Simpler Mortgage Experience</h3>
-                        <p className='text-gray-300'>Streamlined applications and eClosings keep things moving — without the hassle.</p>
+                        <p className='text-gray-300'>Streamlined applications and eClosings keep things moving without the hassle.</p>
                       </div>
                     </div>
 
@@ -55,7 +55,7 @@ function TrustBuilder() {
                     </div>
                   </div>
 
-                <button className='px-4 py-2 text-white text-sm bg-yellow-400 rounded-sm hover:bg-yellow-400 transition-all duration-200 font-medium shadow-sm hover:shadow-md'>
+                <button className=' py-3 px-6 text-white text-sm bg-yellow-400 rounded-sm hover:bg-yellow-400 transition-all duration-200 font-medium shadow-sm hover:shadow-md'>
                 Apply Now
               </button>
                 </div>

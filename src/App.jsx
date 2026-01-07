@@ -6,6 +6,8 @@ import FirstHomeBuyers from './components/FirstHomeBuyers'
 import MortgageCalculator from './components/MortgageCalculator'
 import RatesCTA from './components/RatesCTA'
 import TrustBuilder from './components/TrustBuilder'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <MortgageCalculator />
       <RatesCTA />
       <TrustBuilder />
+      <Contact />
+      <Footer />
     </>
   )
 }
