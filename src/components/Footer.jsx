@@ -14,7 +14,7 @@ function Footer() {
               {/* Logo placeholder - replace with your actual logo */}
                <a href="#home" className="flex-shrink-0">
               <img 
-                src="/public/assets/logo/secondary.png" 
+                src="./assets/logo/secondary.png" 
                 alt="vzz-logo" 
                 className='w-28 md:w-36 lg:w-40'
               />
