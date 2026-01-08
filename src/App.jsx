@@ -8,6 +8,7 @@ import RatesCTA from './components/RatesCTA'
 import TrustBuilder from './components/TrustBuilder'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ChatWidget from './components/ChatBot'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <TrustBuilder />
       <Contact />
       <Footer />
+      <ChatWidget />
     </>
   )
 }

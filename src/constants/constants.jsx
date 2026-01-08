@@ -1,3 +1,11 @@
+import p1 from "@/assets/img/profiles/p-1.png";
+import p2 from "@/assets/img/profiles/p-2.png";
+import p3 from "@/assets/img/profiles/p-3.png";
+import p4 from "@/assets/img/profiles/p-4.png";
+
+export const customerAvatars = [p1, p2, p3, p4];
+
+
 // the nav bar items 
 export const navItems = [
   {
@@ -22,12 +30,6 @@ export const navItems = [
   },
 ];
 
-export const customerAvatars = [
-    '/public/assets/img/profiles/p-1.png',
-    '/public/assets/img/profiles/p-2.png',
-    '/public/assets/img/profiles/p-3.png',
-    '/public/assets/img/profiles/p-4.png',
-  ];
 
   export const paths = [
   {
