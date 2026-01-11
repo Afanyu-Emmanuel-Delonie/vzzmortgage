@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, X, Minus, Maximize2, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
 import MessageItem from './MessageItem';
 
-const WEBHOOK_URL = 'https://afavirtuals.space/webhook/9cc113e7-d987-45a2-8e91-a4a664624d05/chat';
+const WEBHOOK_URL = 'https://afavirtuals.space/webhook/a0eeae27-7c0c-4f13-964b-2edabc2f7545/chat';
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +81,7 @@ const ChatWidget = () => {
 
       // If webhook returns empty, show a default message
       if (!botText || botText.length < 3) {
-        botText = "I received your message but couldn't generate a proper response. Please try again or contact support@afavirtuals.com.";
+        botText = "I received your message but couldn't generate a proper response. Please try again or contact support@vzzmortgage.com.";
       }
 
       setMessages(prev => [...prev, {
@@ -97,7 +97,7 @@ const ChatWidget = () => {
       // Show error message on network failure
       setMessages(prev => [...prev, {
         id: (Date.now() + 1).toString(),
-        text: "I'm having trouble connecting. Check your network or contact support@afavirtuals.com.",
+        text: "I'm having trouble connecting. Check your network or contact support@vzzmortgage.com.",
         sender: 'bot',
         timestamp: new Date(),
         isError: true
