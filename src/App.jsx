@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ChatWidget from './components/ChatBot'
 import Home from './pages/Home/home'
-import HomeLoan from './pages/Buy/Home-Loans'
+import HomeLoan from './pages/Buy/Buyers'
 
 function App() {
   return (
