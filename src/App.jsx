@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ChatWidget from './components/ChatBot'
 import Home from './pages/Home/home'
-import HomeLoan from './pages/Buy/Buyers'
+import Buyers from './pages/Buy/Buyers'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/buy' element={<HomeLoan />} />
+        <Route path='/buyers' element={<Buyers />} />
       </Routes>
       <Footer />
       <ChatWidget />

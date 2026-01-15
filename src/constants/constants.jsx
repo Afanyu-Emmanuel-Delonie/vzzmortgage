@@ -14,7 +14,7 @@ export const navItems = [
   {
     id: 1,
     label: "Buy",
-    href: "/buy",
+    href: "/buyers",
   },
   {
     id:4,

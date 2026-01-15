@@ -5,7 +5,7 @@ import { stepsToGettingApproved } from '../../constants/constants'
 import NewsLetters from '../../components/NewsLetters'
 
 
-function HomeLoan() {
+function Buyers() {
 
   return (
     <section className='section'>
@@ -180,4 +180,4 @@ function HomeLoan() {
   )
 }
 
-export default HomeLoan
+export default Buyers
