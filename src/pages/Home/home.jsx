@@ -1,10 +1,10 @@
 import React from 'react'
 import { customerAvatars } from '../../constants/constants'
-import PathToClosing from '../Home/components/PathToClosing'
-import FirstHomeBuyers from '../Home/components/FirstHomeBuyers'
+import PathToClosing from './components/PathToClosing'
+import FirstHomeBuyers from './components/FirstHomeBuyers'
 import MortgageCalculator from '../../components/MortgageCalculator'
-import RatesCTA from '../Home/components/RatesCTA'
-import TrustBuilder from '../Home/components/TrustBuilder'
+import RatesCTA from './components/RatesCTA'
+import TrustBuilder from './components/TrustBuilder'
 import Contact from '../../components/Contact'
 
 function Home() {
