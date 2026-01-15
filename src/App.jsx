@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ChatWidget from './components/ChatBot'
-import Home from './pages/Home/Home'
+import Home from './pages/Home/home'
 import Buyers from './pages/Buy/Buyers'
 import NotFound from './pages/NotFound' 
 
