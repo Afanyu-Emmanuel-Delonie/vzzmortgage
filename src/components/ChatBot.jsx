@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, X, Minus, Maximize2, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
 import MessageItem from './MessageItem';
@@ -121,7 +122,7 @@ const ChatWidget = () => {
  return (
     <div className="fixed bottom-15 right-6 md:bottom-6 md:right-6 z-[9999] font-sans">
       {/* Attention Popup */}
-      {showPopup && !isOpen && (
+      {/* {showPopup && !isOpen && (
         <div className="absolute bottom-16 sm:bottom-20 right-0 w-64 sm:w-72 animate-slide-up">
           <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-2xl border border-gray-100 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#102044]"></div>
@@ -144,7 +145,7 @@ const ChatWidget = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Main Chat Window */}
       {isOpen && (

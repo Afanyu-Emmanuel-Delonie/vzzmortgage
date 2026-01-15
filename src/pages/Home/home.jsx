@@ -1,22 +1,26 @@
 import React from 'react'
-import { customerAvatars } from '../constants/constants'
+import { customerAvatars } from '../../constants/constants'
+import PathToClosing from '../Home/components/PathToClosing'
+import FirstHomeBuyers from '../Home/components/FirstHomeBuyers'
+import MortgageCalculator from '../../components/MortgageCalculator'
+import RatesCTA from '../Home/components/RatesCTA'
+import TrustBuilder from '../Home/components/TrustBuilder'
+import Contact from '../../components/Contact'
 
-
-function Hero() {
-
+function Home() {
   return (
-    <section className='min-h-[90vh] lg:min-h-[85vh] flex items-center px-5 py-2 md:px-10 lg:px-16'>
+    <>
+    {/* this is the hero section  */}
+    <section className='min-h-[80vh] lg:min-h-[65vh] flex items-center px-5 py-3 md:px-10 lg:px-16'>
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Content */}
           <div className="flex flex-col space-y-8 max-w-2xl">
             {/* Heading */}
-            <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#111111] leading-tight '>
-              Get Pre-Approved Before You Start Your Home {' '}
-              <span className='text-yellow-400 relative inline-block'>
-                Search.
-              </span>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-semibold text-[#111111] leading-tight '>
+              Get Pre-Approved Before You {' '}
+              <span className='text-yellow-400'>Search</span>
             </h1>
 
             {/* Subheading */}
@@ -63,7 +67,7 @@ function Hero() {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-6 pt-2 opacity-70">
+            {/* <div className="flex flex-wrap items-center gap-6 pt-2 opacity-70">
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
@@ -82,7 +86,7 @@ function Hero() {
                 </svg>
                 <span className="text-sm text-gray-600 font-inter">Expert support</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Image */}
@@ -119,7 +123,15 @@ function Hero() {
         </div>
       </div>
     </section>
+
+    <PathToClosing />
+    <FirstHomeBuyers />
+    <MortgageCalculator />
+    <RatesCTA />
+    <TrustBuilder />
+    <Contact />
+    </>
   )
 }
 
-export default Hero
+export default Home

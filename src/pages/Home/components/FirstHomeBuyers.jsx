@@ -1,5 +1,5 @@
 import React from 'react'
-import { FirstTimeHomeList } from '../constants/constants'
+import { FirstTimeHomeList } from '../../../constants/constants'
 
 function FirstHomeBuyers() {
   return (

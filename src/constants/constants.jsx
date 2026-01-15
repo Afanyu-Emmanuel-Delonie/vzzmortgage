@@ -3,6 +3,9 @@ import p2 from "/assets/img/profiles/p-2.png";
 import p3 from "/assets/img/profiles/p-3.png";
 import p4 from "/assets/img/profiles/p-4.png";
 
+import { Tag, Home, TrendingUp, Users, ArrowRight, DollarSign, Clock, PiggyBank, RefreshCw, TrendingDown, Building2, Filter } from 'lucide-react';
+
+
 export const customerAvatars = [p1, p2, p3, p4];
 
 
@@ -11,7 +14,7 @@ export const navItems = [
   {
     id: 1,
     label: "Buy",
-    href: "/",
+    href: "/buy",
   },
   {
     id:4,
@@ -91,3 +94,166 @@ export const FirstTimeHomeList = [
     description: 'Real mortgage specialists with you at every step.'
   }
 ];
+
+// loan options pages 
+
+export const loanOptions = [
+    {
+      id: 1,
+      title: "FHA Home Loan",
+      description: "Buy or refinance with more flexible credit and debt requirements. FHA loans allow down payments as low as 3.5%.",
+      tag: "Lower credit profiles",
+      tagColor: "yellow",
+      icon: Home,
+      category: "purchase",
+      benefits: ["3.5% down payment", "Flexible credit", "First-time buyers"]
+    },
+    {
+      id: 2,
+      title: "Conventional Loan",
+      description: "Traditional mortgage with competitive rates for qualified borrowers. Flexible terms and lower costs when you have good credit and stable income.",
+      tag: "Most popular",
+      tagColor: "blue",
+      icon: Building2,
+      category: "purchase",
+      benefits: ["Low rates", "3-20% down", "No PMI at 20%"]
+    },
+    {
+      id: 3,
+      title: "30-Year Fixed Loan",
+      description: "Enjoy stable monthly payments with a fixed interest rate over 30 years, making budgeting predictable and manageable.",
+      tag: "Long-term stability",
+      tagColor: "blue",
+      icon: Clock,
+      category: "fixed",
+      benefits: ["Fixed rate", "Lower payments", "Predictable budget"]
+    },
+    {
+      id: 4,
+      title: "15-Year Fixed Loan",
+      description: "Pay off your home faster with a shorter loan term and typically lower interest rates compared to longer-term loans.",
+      tag: "Faster payoff",
+      tagColor: "green",
+      icon: TrendingUp,
+      category: "fixed",
+      benefits: ["Lower interest", "Build equity fast", "Save on interest"]
+    },
+    {
+      id: 5,
+      title: "Home Equity Loan",
+      description: "Borrow against the equity in your home to cover major expenses like renovations, education, or medical costs.",
+      tag: "Access your equity",
+      tagColor: "purple",
+      icon: PiggyBank,
+      category: "refinance",
+      benefits: ["Fixed rates", "Large amounts", "Tax benefits"]
+    },
+    {
+      id: 6,
+      title: "First-Time Homebuyer",
+      description: "Designed for new buyers, these loans offer flexible options, lower down payments, and extra guidance through the process.",
+      tag: "New buyers",
+      tagColor: "yellow",
+      icon: Home,
+      category: "purchase",
+      benefits: ["Low down payment", "Expert guidance", "Special programs"]
+    },
+    {
+      id: 7,
+      title: "Cash-Out Refinance",
+      description: "Replace your current mortgage and take cash from your home's equity to fund renovations, consolidate debt, or invest.",
+      tag: "Turn equity into cash",
+      tagColor: "purple",
+      icon: RefreshCw,
+      category: "refinance",
+      benefits: ["Access equity", "Consolidate debt", "Fund projects"]
+    },
+    {
+      id: 8,
+      title: "VA Home Loan",
+      description: "Exclusive loan options for eligible veterans and service members, often with no down payment and no private mortgage insurance.",
+      tag: "Military benefits",
+      tagColor: "green",
+      icon: Users,
+      category: "purchase",
+      benefits: ["0% down payment", "No PMI", "Competitive rates"]
+    },
+    {
+      id: 9,
+      title: "Adjustable-Rate Mortgage",
+      description: "Start with a lower initial interest rate that may change over time, ideal if you plan to move or refinance later.",
+      tag: "Lower starting rates",
+      tagColor: "blue",
+      icon: TrendingDown,
+      category: "adjustable",
+      benefits: ["Lower initial rate", "Flexible terms", "Short-term savings"]
+    }
+  ];
+
+export const filters = [
+    { id: 'all', label: 'All Loans', count: loanOptions.length },
+    { id: 'purchase', label: 'Home Purchase', count: loanOptions.filter(l => l.category === 'purchase').length },
+    { id: 'refinance', label: 'Refinance', count: loanOptions.filter(l => l.category === 'refinance').length },
+    { id: 'fixed', label: 'Fixed Rate', count: loanOptions.filter(l => l.category === 'fixed').length },
+    { id: 'adjustable', label: 'Adjustable Rate', count: loanOptions.filter(l => l.category === 'adjustable').length }
+  ];
+
+  export const tagStyles = {
+    yellow: "bg-yellow-400/10 text-yellow-700 border-yellow-200",
+    blue: "bg-blue-400/10 text-blue-700 border-blue-200",
+    green: "bg-green-400/10 text-green-700 border-green-200",
+    purple: "bg-purple-400/10 text-purple-700 border-purple-200"
+  };
+
+export const stepsToGettingApproved = [
+  {
+    id: 1,
+    stepNo: '01',
+    title: 'Share your goals',
+    description: 'Answer a few quick questions about your home and financing needs.'
+  },
+   {
+    id: 2,
+    stepNo: '02',
+    title: 'Explore your options',
+    description: 'We match you with loan options that fit your situation.'
+  },
+   {
+    id: 3,
+    stepNo: '03',
+    title: 'Apply with confidence',
+    description: 'Complete your application online with guidance at every step.'
+  },
+   {
+    id: 4,
+    stepNo: '04',
+    title: 'Close and move forward',
+    description: 'Finalize your loan and take the next step toward your home goals.'
+  },
+];
+
+
+// this section will be covering the news letters 
+export const newsArticles = [
+    {
+      category: "Market Update",
+      title: "Mortgage Rates Drop to 6-Month Low",
+      excerpt: "Great news for home buyers as rates become more favorable heading into spring.",
+      date: "Jan 10, 2026",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+    },
+    {
+      category: "First-Time Buyers",
+      title: "5 Tips for First-Time Home buyers",
+      excerpt: "Essential advice to navigate your first home purchase with confidence.",
+      date: "Jan 8, 2026",
+      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80"
+    },
+    {
+      category: "Refinancing",
+      title: "Is Now the Time to Refinance?",
+      excerpt: "Calculate if refinancing could save you thousands over the life of your loan.",
+      date: "Jan 5, 2026",
+      image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80"
+    }
+  ]

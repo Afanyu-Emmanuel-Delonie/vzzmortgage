@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { HiHome } from 'react-icons/hi'
-import { paths } from '../constants/constants'
+import { paths } from '../../../constants/constants'
 
 function PathToClosing() {
      const [hoveredId, setHoveredId] = useState(null)

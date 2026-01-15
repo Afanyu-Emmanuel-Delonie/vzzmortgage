@@ -1,29 +1,47 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import { MdCall, MdEmail, MdSchedule, MdLocationOn } from 'react-icons/md'
+import { MdCall, MdEmail, MdSchedule, MdLocationOn, MdCheckCircle, MdError, MdClose, MdWarning } from 'react-icons/md'
+import { useContactForm } from '../hooks/useContactForm'
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    enquiryType: '',
-    message: ''
-  })
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-  }
+  const {
+    formData,
+    notification,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+    closeNotification,
+    setNotification
+  } = useContactForm()
 
   return (
     <section className='py-16 px-5 md:px-10 lg:px-16 mb-15'>
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg transition-all max-w-md ${
+          notification.type === 'success' 
+            ? 'bg-green-500 text-white' 
+            : notification.type === 'warning'
+            ? 'bg-yellow-500 text-white'
+            : 'bg-red-500 text-white'
+        }`}>
+          {notification.type === 'success' ? (
+            <MdCheckCircle className='text-2xl flex-shrink-0' />
+          ) : notification.type === 'warning' ? (
+            <MdWarning className='text-2xl flex-shrink-0' />
+          ) : (
+            <MdError className='text-2xl flex-shrink-0' />
+          )}
+          <span className='font-medium text-sm'>{notification.message}</span>
+          <button 
+            onClick={() => setNotification(null)}
+            className='ml-2 hover:opacity-80 flex-shrink-0'
+          >
+            <MdClose className='text-xl' />
+          </button>
+        </div>
+      )}
+
       <div className="container mx-auto px-4">
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] text-center mb-6 sm:pb-5'>
           Get In Touch With Us
@@ -87,7 +105,7 @@ function Contact() {
           {/* Right side - Contact Form */}
           <div className=' shadow-md rounded-md p-6 w-full lg:w-1/2 rounded-sm'>
             <h3 className='text-2xl font-bold text-[#102044] mb-6'>Send Us a Message</h3>
-            <form onSubmit={handleSubmit} className='space-y-4'>
+            <div className='space-y-4'>
               <div>
                 <input
                   type="text"
@@ -95,8 +113,8 @@ function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200'
+                  disabled={isSubmitting}
+                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 disabled:bg-gray-100 disabled:cursor-not-allowed'
                   placeholder='Your full name *'
                 />
               </div>
@@ -108,37 +126,35 @@ function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200'
-                  placeholder='Enter Your Email'
+                  disabled={isSubmitting}
+                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 disabled:bg-gray-100 disabled:cursor-not-allowed'
+                  placeholder='Enter Your Email *'
                 />
               </div>
 
               <div>
-                
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200'
-                  placeholder='(123) 456-7890'
+                  disabled={isSubmitting}
+                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 disabled:bg-gray-100 disabled:cursor-not-allowed'
+                  placeholder='(123) 456-7890 *'
                 />
               </div>
 
               <div>
-               
                 <select
                   id="enquiryType"
                   name="enquiryType"
                   value={formData.enquiryType}
                   onChange={handleChange}
-                  required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 bg-white'
+                  disabled={isSubmitting}
+                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 bg-white disabled:bg-gray-100 disabled:cursor-not-allowed'
                 >
-                  <option value="">Select enquiry type</option>
+                  <option value="">Select enquiry type *</option>
                   <option value="Buying A Home">Buying A Home</option>
                   <option value="Refinancing">Refinancing</option>
                   <option value="Equity">Equity</option>
@@ -148,26 +164,36 @@ function Contact() {
               </div>
 
               <div>
-                
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows="5"
-                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 resize-none'
-                  placeholder='Tell us about your inquiry...'
+                  disabled={isSubmitting}
+                  className='w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-200 resize-none disabled:bg-gray-100 disabled:cursor-not-allowed'
+                  placeholder='Tell us about your inquiry... *'
                 ></textarea>
               </div>
 
               <button
-                type="submit"
-                className=' bg-[#102044] text-white py-3 px-6 rounded-sm font-semibold hover:bg-[#1a2f5a] transition-colors duration-300'
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className='bg-[#102044] text-white py-3 px-6 rounded-sm font-semibold hover:bg-[#1a2f5a] transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2'
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
