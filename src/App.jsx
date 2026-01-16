@@ -6,6 +6,7 @@ import ChatWidget from './components/ChatBot'
 import Home from './pages/Home/home'
 import Buyers from './pages/Buy/Buyers'
 import NotFound from './pages/NotFound' 
+import FirstTimeBuyer from './pages/Buy/FirstTimeBuyer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/buyers' element={<Buyers />} />
+        <Route path='/first-time-buyer' element={<FirstTimeBuyer />} />
         
         {/* The 404 Catch-all Route */}
         <Route path='*' element={<NotFound />} />

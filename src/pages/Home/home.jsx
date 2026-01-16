@@ -1,17 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { customerAvatars } from '../../constants/constants'
-import PathToClosing from './components/PathToClosing'
-import FirstHomeBuyers from './components/FirstHomeBuyers'
-import MortgageCalculator from '../../components/MortgageCalculator'
+import MortgageCalculator from '../../components/calculator/MortgageCalculator'
 import RatesCTA from './components/RatesCTA'
-import TrustBuilder from './components/TrustBuilder'
 import Contact from '../../components/Contact'
+import { HiHome } from 'react-icons/hi'
+import { paths, FirstTimeHomeList } from '../../constants/constants'
+import NewsLetters from '../../components/NewsLetters'
 
 function Home() {
+   const [hoveredId, setHoveredId] = useState(null)
+
   return (
-    <>
+    <section>
     {/* this is the hero section  */}
-    <section className='min-h-[80vh] lg:min-h-[65vh] flex items-center px-5 py-3 md:px-10 lg:px-16'>
+    <div className='min-h-[80vh] lg:min-h-[65vh] flex items-center px-5 py-3 md:px-10 lg:px-16'>
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
@@ -122,15 +124,177 @@ function Home() {
 
         </div>
       </div>
-    </section>
+    </div>
 
-    <PathToClosing />
-    <FirstHomeBuyers />
+    <div className='section py-10 bg-white'>
+        <div className="container justify-center">
+           <h2 className='text-[#111111] text-center pb-15'>Choose <span className='text-yellow-500'>Your path</span> To Closing</h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {paths.map((path) => (
+                    <div 
+                    key={path.id}
+                    onMouseEnter={() => setHoveredId(path.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                    className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer group overflow-hidden border border-gray-100"
+                    style={{
+                        transform: hoveredId === path.id ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)'
+                    }}
+                    >
+                    
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                   
+                    <div className="flex items-center">
+                        <div>
+                        <div className="w-16 h-16 flex items-center justify-center text-[#102044]/30 transition-all duration-500 group-hover:rotate-6">
+                            {path.icon}
+                        </div>
+                        </div>
+
+                        {/* Badge */}
+                        <div className="absolute top-4 right-4 z-10">
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-[#102044] group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                            {path.badge}
+                        </span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div className="relative z-10">
+                        <h3 className="text-md font-medium text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">
+                        {path.title}
+                        </h3>
+                    </div>
+                    </div>
+                ))}
+                </div>
+
+            
+            <div className="text-center mt-12">
+            <p className="text-gray-500 text-sm">
+                Not sure which path is right for you? <a href="#" className="text-yellow-500 hover:text-yellow-600 font-semibold">Talk to an expert</a>
+            </p>
+            </div>
+        </div>
+    </div>
+    
+    {/* first time home buyers  */}
+    <div className='py-16 px-5 md:px-10 lg:px-16'>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+           
+            <div className="relative w-full md:w-1/2 rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/assets/img/homebuyer.png" 
+                alt="Happy family in their new home" 
+                className='w-full h-auto object-cover'
+              />
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+            </div>
+
+            {/* Content Section */}
+            <div className="flex flex-col w-full md:w-1/2">
+                <h2 className='font-bold text-[#111111] mb-4'>
+                  Your First Home Starts With <span className='text-yellow-400'>Confidence.</span>
+                </h2>
+
+                <p className='text-lg text-gray-600 mb-6 leading-relaxed font-inter'>
+                  We make your first home purchase simple, clear, and stress-free from start to keys in hand.
+                </p>
+
+                <ul className='mb-8 space-y-4'>
+                    {FirstTimeHomeList.map((item) => (
+                        <li key={item.id} className='flex items-start gap-3'>
+                          <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center mt-0.5">
+                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                          </div>
+                          <div>
+                            <span className='font-semibold text-[#111111] font-inter'>{item.title}</span>
+                            <span className='text-gray-600 font-inter'> {item.description}</span>
+                          </div>
+                        </li>
+                    ))}
+                </ul>
+
+                <button className='px-6 py-3 w-full md:w-1/3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'>
+                  Start Journey
+                </button>
+            </div>
+        </div>
+    </div>
+
     <MortgageCalculator />
     <RatesCTA />
-    <TrustBuilder />
+    
+    {/* trust builder section  */}
+     <div className='py-16 px-5 md:px-10 lg:px-16'>
+        <div className="container flex gap-6 flex-col lg:flex-row items-stretch">
+            <div className="relative w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/assets/img/buyer.png" 
+                alt="Happy family in their new home" 
+                className='w-full h-full object-cover'
+              /> 
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+            </div>
+
+            <div className='flex flex-col justify-between w-full lg:w-1/2 bg-[#102044] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg text-white'>
+                <div>
+                  <h2 className='text-2xl sm:text-4xl font-bold mb-8'>A Simpler Mortgage Experience</h2>
+                  
+                  <div className='space-y-6 mb-6'>
+                    <div className='flex gap-4'>
+                      <div className='flex-shrink-0'>
+                        <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className='text-xl font-semibold mb-2'>Digital Convenience. Human Support.</h3>
+                        <p className='text-gray-300'>Apply online in minutes, with trusted experts ready whenever you need guidance.</p>
+                      </div>
+                    </div>
+
+                    <div className='flex gap-4'>
+                      <div className='flex-shrink-0'>
+                        <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 10V3L4 14h7v7l9-11h-7z' />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className='text-xl font-semibold mb-2'>A Faster, Simpler Mortgage Experience</h3>
+                        <p className='text-gray-300'>Streamlined applications and eClosings keep things moving without the hassle.</p>
+                      </div>
+                    </div>
+
+                    <div className='flex gap-4'>
+                      <div className='flex-shrink-0'>
+                        <svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className='text-xl font-semibold mb-2'>More Ways to Own With Confidence</h3>
+                        <p className='text-gray-300'>Programs and pricing designed to help you buy, refinance, or unlock equity wisely.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                <button className=' py-3 px-6 text-white text-sm bg-yellow-400 rounded-sm hover:bg-yellow-400 transition-all duration-200 font-medium shadow-sm hover:shadow-md'>
+                Apply Now
+              </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <Contact />
-    </>
+    {/* <NewsLetters /> */}
+    </section>
   )
 }
 

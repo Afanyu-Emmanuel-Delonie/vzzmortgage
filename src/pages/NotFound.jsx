@@ -31,7 +31,7 @@ const styles = {
     fontSize: '120px',
     fontWeight: 'bold',
     margin: '0',
-    color: '#f3f4f6', // Subtle light gray
+    color: '#f3f4f6', 
     position: 'absolute',
     zIndex: '-1',
   },
@@ -48,7 +48,7 @@ const styles = {
   },
   button: {
     padding: '12px 24px',
-    backgroundColor: '#3b82f6', // Nice blue
+    backgroundColor: '#102044', // Nice blue
     color: 'white',
     textDecoration: 'none',
     borderRadius: '8px',

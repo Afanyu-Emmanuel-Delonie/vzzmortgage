@@ -3,8 +3,7 @@ import p2 from "/assets/img/profiles/p-2.png";
 import p3 from "/assets/img/profiles/p-3.png";
 import p4 from "/assets/img/profiles/p-4.png";
 
-import { Tag, Home, TrendingUp, Users, ArrowRight, DollarSign, Clock, PiggyBank, RefreshCw, TrendingDown, Building2, Filter } from 'lucide-react';
-
+import { Tag, Home, TrendingUp, Users, ArrowRight,  Zap, Check, X, DollarSign, Clock, PiggyBank, RefreshCw, TrendingDown, Building2, Filter } from 'lucide-react';
 
 export const customerAvatars = [p1, p2, p3, p4];
 
@@ -19,7 +18,7 @@ export const navItems = [
   {
     id:4,
     label: 'Refinance',
-    href: '/',
+    href: '/first-time-buyer',
   },
   {
     id: 4,
@@ -232,7 +231,6 @@ export const stepsToGettingApproved = [
   },
 ];
 
-
 // this section will be covering the news letters 
 export const newsArticles = [
     {
@@ -256,4 +254,111 @@ export const newsArticles = [
       date: "Jan 5, 2026",
       image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80"
     }
-  ]
+  ];
+
+export const tips = [
+    {
+      tag: "Credit basics",
+      title: "Understanding Your Credit",
+      description: "Your credit affects which loans you qualify for, but you don't need perfect credit to buy your first home. Learn how to check and improve your score.",
+      cta: "Learn More",
+      link: "/blog/credit-guide",
+      icon: (
+        <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      )
+    },
+    {
+      tag: "Budget smarter",
+      title: "Know Your Costs",
+      description: "Buying a home involves more than the loan — estimate down payments, closing costs, and monthly payments to plan your budget.",
+      cta: "Calculate Payments",
+      link: "/calculator",
+      icon: (
+        <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      )
+    },
+    {
+      tag: "Process explained",
+      title: "How the Loan Works",
+      description: "From prequalification to closing, understanding the steps makes buying your first home simple and stress-free.",
+      cta: "Get Started",
+      link: "/apply",
+      icon: (
+        <svg className='w-6 h-6' fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        </svg>
+      )
+    }
+  ];
+
+export const loans = [
+    {
+      id: 1,
+      name: "15-Year Fixed",
+      rate: "5.875%",
+      apr: "6.102%",
+      monthlyPayment: 2847,
+      totalInterest: 152460,
+      loanAmount: 360000,
+      bestFor: "Fast equity building",
+      pros: [
+        "Pay off your home faster",
+        "Lower total interest paid",
+        "Build equity quickly"
+      ],
+      cons: [
+        "Higher monthly payments",
+        "Less cash flow flexibility"
+      ],
+      color: "blue",
+      Icon: Zap
+    },
+    {
+      id: 2,
+      name: "30-Year Fixed",
+      rate: "6.375%",
+      apr: "6.527%",
+      monthlyPayment: 2248,
+      totalInterest: 449280,
+      loanAmount: 360000,
+      bestFor: "Lower monthly payments",
+      pros: [
+        "More affordable monthly payments",
+        "Greater cash flow flexibility",
+        "Most popular option"
+      ],
+      cons: [
+        "More interest over loan life",
+        "Slower equity building"
+      ],
+      color: "yellow",
+      Icon: Home,
+      popular: true
+    },
+    {
+      id: 3,
+      name: "5/1 ARM",
+      rate: "5.625%",
+      apr: "6.891%",
+      monthlyPayment: 2074,
+      totalInterest: 386640,
+      loanAmount: 360000,
+      bestFor: "Short-term ownership",
+      pros: [
+        "Lowest initial rate",
+        "Lower starting payments",
+        "Good for short-term plans"
+      ],
+      cons: [
+        "Rate adjusts after 5 years",
+        "Payment uncertainty",
+        "Potential for higher payments"
+      ],
+      color: "green",
+      Icon: TrendingUp
+    }
+  ];
