@@ -1,23 +1,34 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, X, Minus, Maximize2, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
-import MessageItem from './MessageItem';
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import {
+  Send,
+  X,
+  Minus,
+  Maximize2,
+  Sparkles,
+  MessageCircle,
+  AlertCircle,
+} from "lucide-react";
+import MessageItem from "./MessageItem";
 
-const WEBHOOK_URL = 'https://afavirtuals.space/webhook/a0eeae27-7c0c-4f13-964b-2edabc2f7545/chat';
+const WEBHOOK_URL =
+  "https://afavirtuals.space/webhook/a0eeae27-7c0c-4f13-964b-2edabc2f7545/chat";
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [sessionId] = useState(() => `ella_${Math.random().toString(36).substring(7)}`);
+  const [sessionId] = useState(
+    () => `ella_${Math.random().toString(36).substring(7)}`
+  );
   const [messages, setMessages] = useState([
     {
-      id: '1',
+      id: "1",
       text: "Hi! I'm **Serra** 👋\n\nI’m your guide at VZZ Mortgage, here to make home financing simple and stress-free. What can I help you with today?",
-      sender: 'bot',
-      timestamp: new Date()
-    }
+      sender: "bot",
+      timestamp: new Date(),
+    },
   ]);
 
   const messagesEndRef = useRef(null);
@@ -26,7 +37,7 @@ const ChatWidget = () => {
 
   // Auto-scroll logic
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   useEffect(() => {
@@ -49,12 +60,12 @@ const ChatWidget = () => {
     const userMsg = {
       id: Date.now().toString(),
       text: trimmedInput,
-      sender: 'user',
+      sender: "user",
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
     setIsTyping(true);
 
     if (abortControllerRef.current) abortControllerRef.current.abort();
@@ -62,47 +73,53 @@ const ChatWidget = () => {
 
     try {
       const response = await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          action: 'sendMessage',
+          action: "sendMessage",
           sessionId,
           chatInput: trimmedInput,
         }),
-        signal: abortControllerRef.current.signal
+        signal: abortControllerRef.current.signal,
       });
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const data = await response.json();
-      
-      let botText = '';
-      if (typeof data === 'string') botText = data;
-      else botText = data.output || data.response || data.message || '';
+
+      let botText = "";
+      if (typeof data === "string") botText = data;
+      else botText = data.output || data.response || data.message || "";
 
       // If webhook returns empty, show a default message
       if (!botText || botText.length < 3) {
-        botText = "I received your message but couldn't generate a proper response. Please try again or contact support@vzzmortgage.com.";
+        botText =
+          "I received your message but couldn't generate a proper response. Please try again or contact support@vzzmortgage.com.";
       }
 
-      setMessages(prev => [...prev, {
-        id: (Date.now() + 1).toString(),
-        text: botText,
-        sender: 'bot',
-        timestamp: new Date(),
-      }]);
-
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          text: botText,
+          sender: "bot",
+          timestamp: new Date(),
+        },
+      ]);
     } catch (err) {
-      if (err.name === 'AbortError') return;
-      
+      if (err.name === "AbortError") return;
+
       // Show error message on network failure
-      setMessages(prev => [...prev, {
-        id: (Date.now() + 1).toString(),
-        text: "I'm having trouble connecting. Check your network or contact support@vzzmortgage.com.",
-        sender: 'bot',
-        timestamp: new Date(),
-        isError: true
-      }]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          text: "I'm having trouble connecting. Check your network or contact support@vzzmortgage.com.",
+          sender: "bot",
+          timestamp: new Date(),
+          isError: true,
+        },
+      ]);
     } finally {
       setIsTyping(false);
       abortControllerRef.current = null;
@@ -110,16 +127,16 @@ const ChatWidget = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
     }
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       setIsOpen(false);
     }
   };
 
- return (
+  return (
     <div className="fixed bottom-15 right-6 md:bottom-6 md:right-6 z-[9999] font-sans">
       {/* Attention Popup */}
       {/* {showPopup && !isOpen && (
@@ -150,7 +167,6 @@ const ChatWidget = () => {
       {/* Main Chat Window */}
       {isOpen && (
         <div className="fixed inset-0 sm:absolute sm:inset-auto sm:bottom-15 sm:right-0 w-full h-full sm:w-96 md:w-[410px] sm:h-[600px] md:h-[700px] sm:max-h-[85vh] bg-white sm:rounded-3xl shadow-2xl sm:border sm:border-slate-200 flex flex-col overflow-hidden animate-slide-up">
-          
           {/* Header */}
           <div className="bg-gradient-to-r from-[#102044] to-[#1a3a5c] p-4 sm:p-5 flex items-center justify-between shadow-md z-10">
             <div className="flex items-center gap-2 sm:gap-3">
@@ -163,7 +179,9 @@ const ChatWidget = () => {
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 border-2 border-white rounded-full"></div>
               </div>
               <div className="text-white">
-                <h3 className="font-bold text-base sm:text-lg tracking-tight">Sera Assistant</h3>
+                <h3 className="font-bold text-base sm:text-lg tracking-tight">
+                  Sera Assistant
+                </h3>
                 <p className="text-[10px] sm:text-xs opacity-90 flex items-center gap-1">
                   <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white rounded-full animate-pulse"></div>
                   Always active
@@ -171,14 +189,14 @@ const ChatWidget = () => {
               </div>
             </div>
             <div className="flex items-center gap-1">
-              <button 
-                onClick={() => setIsOpen(false)} 
+              <button
+                onClick={() => setIsOpen(false)}
                 className="hidden sm:block p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
               >
                 <Minus size={20} />
               </button>
-              <button 
-                onClick={() => setIsOpen(false)} 
+              <button
+                onClick={() => setIsOpen(false)}
                 className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
               >
                 <X size={20} />
@@ -191,7 +209,7 @@ const ChatWidget = () => {
             {messages.map((msg) => (
               <MessageItem key={msg.id} message={msg} />
             ))}
-            
+
             {isTyping && (
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#102044]/10 flex items-center justify-center">
@@ -231,9 +249,14 @@ const ChatWidget = () => {
               </button>
             </div>
             <div className="flex items-center justify-between mt-2 sm:mt-3 px-1">
-              <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium">Ella Smart AI v2.5</p>
+              <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium">
+                Ella Smart AI v2.5
+              </p>
               <div className="flex items-center gap-3">
-                <button title="Help" className="text-slate-300 hover:text-slate-500 transition-colors">
+                <button
+                  title="Help"
+                  className="text-slate-300 hover:text-slate-500 transition-colors"
+                >
                   <AlertCircle size={12} className="sm:w-[14px] sm:h-[14px]" />
                 </button>
               </div>
@@ -249,17 +272,31 @@ const ChatWidget = () => {
           setShowPopup(false);
         }}
         className={`group relative overflow-hidden bg-gradient-to-br from-[#102044] via-[#1a3a5c] to-[#2d5a7b] text-white rounded-full shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center hover:scale-110 active:scale-90 ${
-          isOpen ? 'w-12 h-12 sm:w-14 sm:h-14' : 'w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20'
+          isOpen
+            ? "w-12 h-12 sm:w-14 sm:h-14"
+            : "w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20"
         }`}
         aria-label={isOpen ? "Close Chat" : "Open Ella Assistant"}
       >
-        <div className={`transition-all duration-300 ${isOpen ? 'rotate-180 opacity-0 scale-0' : 'rotate-0 opacity-100 scale-100'}`}>
+        <div
+          className={`transition-all duration-300 ${
+            isOpen
+              ? "rotate-180 opacity-0 scale-0"
+              : "rotate-0 opacity-100 scale-100"
+          }`}
+        >
           <MessageCircle size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" />
         </div>
-        <div className={`absolute transition-all duration-300 ${isOpen ? 'rotate-0 opacity-100 scale-100' : 'rotate-180 opacity-0 scale-0'}`}>
+        <div
+          className={`absolute transition-all duration-300 ${
+            isOpen
+              ? "rotate-0 opacity-100 scale-100"
+              : "rotate-180 opacity-0 scale-0"
+          }`}
+        >
           <X size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
         </div>
-        
+
         {/* Pulsing notifications */}
         {!isOpen && (
           <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-3 h-3 sm:w-4 sm:h-4 bg-red-500 border-2 border-white rounded-full animate-ping"></span>
