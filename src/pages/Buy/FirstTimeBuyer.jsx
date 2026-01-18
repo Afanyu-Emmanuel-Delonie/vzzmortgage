@@ -1,7 +1,7 @@
 import { Check, X } from "lucide-react";
 import { useState } from "react";
-import NewsLetters from "../../components/NewsLetters";
-import StepsToApprovals from "../../components/StepsToApprovals";
+import NewsLetters from "../../components/general/NewsLetters";
+import StepsToApprovals from "../../components/general/StepsToApprovals";
 import MortgageCalculator from "../../components/calculator/MortgageCalculator";
 import CTASection from "../../components/contacts/FinalCTA";
 import CompactRatesComparison from "../../components/rates/Rates";

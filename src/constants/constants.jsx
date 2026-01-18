@@ -32,21 +32,124 @@ export const navItems = [
     id: 1,
     label: "Buy",
     href: "/buyers",
+    columns: [
+      {
+        title: "Buy A Home",
+        links: [
+          { label: "Get Started", href: "/" },
+          { label: "Purchase loan options", href: "/buyers" },
+          { label: "First-time home buyer", href: "/first-time-buyer" },
+          { label: "VA & military resources", href: "/VA-Loan-Options" },
+        ],
+      },
+      {
+        title: "Calculators & Tools",
+        links: [
+          { label: "Mortgage calculator", href: "/calc/mortgage" },
+          { label: "Affordability calculator", href: "/calc/affordability" },
+          { label: "Refinance calculator", href: "/calc/refinance" },
+          { label: "Debt-to-income calculator", href: "/calc/dti" },
+        ],
+      },
+      {
+        title: "Resources",
+        links: [
+          { label: "Buying guides", href: "/guides/buying" },
+          { label: "Market trends", href: "/market-trends" },
+          { label: "Chat with us", href: "/chat" },
+        ],
+      },
+    ],
+    featured: {
+      image:
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
+      title: "Make your dream home a reality in 2026",
+      description: "Explore our comprehensive buying guides and tools",
+      cta: { text: "Start Your Journey", href: "/learn-buying" },
+    },
   },
   {
-    id: 4,
+    id: 2,
     label: "Refinance",
-    href: "/VA-Loan-Options",
+    href: "/refinance",
+    columns: [
+      {
+        title: "Refinance Options",
+        links: [
+           { label: "Get Started", href: "/" },
+          { label: "Refinance loan options", href: "/buyers" },
+          { label: "Cash-out refinance", href: "/cash-out" },
+          { label: "Rate and term refinance", href: "/rate-term" },
+          { label: "VA & military refi", href: "/VA-Loan-Options" },
+        ],
+      },
+      {
+        title: "Debt Solutions",
+        links: [
+          { label: "Debt consolidation", href: "/debt-consolidation" },
+          { label: "How it works", href: "/debt/how-it-works" },
+          { label: "Benefits & savings", href: "/debt/benefits" },
+          { label: "Check eligibility", href: "/debt/eligibility" },
+        ],
+      },
+      {
+        title: "Resources",
+        links: [
+          { label: "Refinance calculator", href: "/calc/refinance" },
+          { label: "Break-even calculator", href: "/calc/break-even" },
+        ],
+      },
+    ],
+    featured: {
+      image:
+        "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=400&h=300&fit=crop",
+      title: "Consolidate debt and get a fresh start",
+      description: "Lower your monthly payments and simplify your finances",
+      cta: { text: "Explore Options", href: "/learn-consolidation" },
+    },
+  },
+  {
+    id: 3,
+    label: "Rates",
+    href: "/rates",
   },
   {
     id: 4,
-    label: "Rates",
-    href: "/",
-  },
-  {
-    id: 5,
     label: "Loan Options",
-    href: "/",
+    href: "/loan-options",
+    columns: [
+      {
+        title: "Conventional Loans",
+        links: [
+          { label: "Fixed-rate mortgages", href: "/conventional/fixed" },
+          { label: "Adjustable-rate mortgages", href: "/conventional/arm" },
+          { label: "Conforming loans", href: "/conventional/conforming" },
+        ],
+      },
+      {
+        title: "Government Loans",
+        links: [
+          { label: "VA loans", href: "/va-loans" },
+          { label: "FHA loans", href: "/fha" },
+          { label: "USDA loans", href: "/usda" },
+        ],
+      },
+      {
+        title: "Specialty Loans",
+        links: [
+          { label: "Jumbo loans", href: "/jumbo" },
+          { label: "Construction loans", href: "/construction" },
+          { label: "Investment property", href: "/investment" },
+        ],
+      },
+    ],
+    featured: {
+      image:
+        "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=400&h=300&fit=crop",
+      title: "Consolidate debt and get a fresh start",
+      description: "Lower your monthly payments and simplify your finances",
+      cta: { text: "Explore Options", href: "/learn-consolidation" },
+    },
   },
 ];
 
@@ -321,23 +424,27 @@ export const vaLoanSteps = [
   {
     stepNo: "01",
     title: "Verify Your Eligibility",
-    description: "Confirm your VA loan eligibility and obtain your Certificate of Eligibility (COE) to get started."
+    description:
+      "Confirm your VA loan eligibility and obtain your Certificate of Eligibility (COE) to get started.",
   },
   {
     stepNo: "02",
     title: "Get Pre-Approved",
-    description: "Work with a VA-approved lender to get pre-approved and understand your buying power with your VA benefits."
+    description:
+      "Work with a VA-approved lender to get pre-approved and understand your buying power with your VA benefits.",
   },
   {
     stepNo: "03",
     title: "Find Your Home",
-    description: "Search for a home that meets VA property requirements and fits your needs and budget."
+    description:
+      "Search for a home that meets VA property requirements and fits your needs and budget.",
   },
   {
     stepNo: "04",
     title: "VA Appraisal & Closing",
-    description: "Complete the VA appraisal process and close on your home with zero down payment."
-  }
+    description:
+      "Complete the VA appraisal process and close on your home with zero down payment.",
+  },
 ];
 
 // this section will be covering the news letters
@@ -443,24 +550,27 @@ export const tips = [
   },
 ];
 
-// first time home buyers tips 
- export const firstTimeHomeBuyerSteps = [
-    {
-      icon: DollarSign,
-      title: "Understand your budget",
-      description: "Get a clear picture of what you can afford and estimate monthly payments with easy-to-use tools."
-    },
-    {
-      icon: FileText,
-      title: "Get ready to shop",
-      description: "Prequalify in minutes to understand your buying power with no impact on your credit."
-    },
-    {
-      icon: Home,
-      title: "Find the right home",
-      description: "Explore homes that fit your needs and take the next step toward owning your first place."
-    }
-  ];
+// first time home buyers tips
+export const firstTimeHomeBuyerSteps = [
+  {
+    icon: DollarSign,
+    title: "Understand your budget",
+    description:
+      "Get a clear picture of what you can afford and estimate monthly payments with easy-to-use tools.",
+  },
+  {
+    icon: FileText,
+    title: "Get ready to shop",
+    description:
+      "Prequalify in minutes to understand your buying power with no impact on your credit.",
+  },
+  {
+    icon: Home,
+    title: "Find the right home",
+    description:
+      "Explore homes that fit your needs and take the next step toward owning your first place.",
+  },
+];
 
 export const loans = [
   {
@@ -552,62 +662,123 @@ export const vaCards = [
 ];
 
 export const VASteps = [
-    {
-      icon: CheckCircle,
-      title: "Verify Your VA Benefits",
-      description: "Confirm your eligibility through your Certificate of Eligibility (COE) and discover the full range of benefits available to you as a veteran or active service member."
-    },
-    {
-      icon: Calculator,
-      title: "Calculate What You Can Afford",
-      description: "Use our VA loan calculator to estimate monthly payments with no down payment required, competitive rates, and no PMI to factor in."
-    },
-    {
-      icon: Home,
-      title: "Start Your Home Search",
-      description: "Work with a VA-experienced agent to find properties that meet VA standards and fit your lifestyle, knowing you have the backing of your earned benefits."
-    }
-  ];
+  {
+    icon: CheckCircle,
+    title: "Verify Your VA Benefits",
+    description:
+      "Confirm your eligibility through your Certificate of Eligibility (COE) and discover the full range of benefits available to you as a veteran or active service member.",
+  },
+  {
+    icon: Calculator,
+    title: "Calculate What You Can Afford",
+    description:
+      "Use our VA loan calculator to estimate monthly payments with no down payment required, competitive rates, and no PMI to factor in.",
+  },
+  {
+    icon: Home,
+    title: "Start Your Home Search",
+    description:
+      "Work with a VA-experienced agent to find properties that meet VA standards and fit your lifestyle, knowing you have the backing of your earned benefits.",
+  },
+];
 
 export const MilitaryFocusedCTA = [
-    {
-      title: "Zero Down Payment",
-      description: "No down payment required on your home purchase 100% financing available for eligible veterans"
-    },
-    {
-      title: "No PMI Required",
-      description: "Save hundreds per month with no private mortgage insurance, a benefit exclusive to VA loans"
-    },
-    {
-      title: "Dedicated Support",
-      description: "Work with VA loan specialists who understand your service and are committed to your success"
-    }
-  ];
+  {
+    title: "Zero Down Payment",
+    description:
+      "No down payment required on your home purchase 100% financing available for eligible veterans",
+  },
+  {
+    title: "No PMI Required",
+    description:
+      "Save hundreds per month with no private mortgage insurance, a benefit exclusive to VA loans",
+  },
+  {
+    title: "Dedicated Support",
+    description:
+      "Work with VA loan specialists who understand your service and are committed to your success",
+  },
+];
 
-  // faq section 
-  export const vaLoanFaqs = [
+// faq section
+export const vaLoanFaqs = [
   {
     question: "What is a VA loan?",
-    answer: "A VA loan is a mortgage loan guaranteed by the U.S. Department of Veterans Affairs. It's designed to help active-duty service members, veterans, and eligible surviving spouses purchase homes with favorable terms, including no down payment and no private mortgage insurance (PMI)."
+    answer:
+      "A VA loan is a mortgage loan guaranteed by the U.S. Department of Veterans Affairs. It's designed to help active-duty service members, veterans, and eligible surviving spouses purchase homes with favorable terms, including no down payment and no private mortgage insurance (PMI).",
   },
   {
     question: "Who is eligible for a VA loan?",
-    answer: "Veterans, active-duty service members with at least 90 consecutive days of service, National Guard and Reserve members with at least 6 years of service, and certain surviving spouses may be eligible. You'll need a Certificate of Eligibility (COE) to verify your eligibility status."
+    answer:
+      "Veterans, active-duty service members with at least 90 consecutive days of service, National Guard and Reserve members with at least 6 years of service, and certain surviving spouses may be eligible. You'll need a Certificate of Eligibility (COE) to verify your eligibility status.",
   },
   {
     question: "Do I need a down payment for a VA loan?",
-    answer: "No, one of the biggest benefits of a VA loan is that you can purchase a home with 0% down payment. However, making a down payment can lower your funding fee and reduce your monthly payments."
+    answer:
+      "No, one of the biggest benefits of a VA loan is that you can purchase a home with 0% down payment. However, making a down payment can lower your funding fee and reduce your monthly payments.",
   },
   {
     question: "What is the VA funding fee?",
-    answer: "The VA funding fee is a one-time payment that helps offset the cost of the VA loan program. The fee varies based on your down payment amount, whether it's your first VA loan, and your military category. Some veterans with service-connected disabilities are exempt from this fee."
+    answer:
+      "The VA funding fee is a one-time payment that helps offset the cost of the VA loan program. The fee varies based on your down payment amount, whether it's your first VA loan, and your military category. Some veterans with service-connected disabilities are exempt from this fee.",
   },
   {
     question: "Can I use my VA loan benefit more than once?",
-    answer: "Yes! Your VA loan benefit is reusable. Once you've paid off your VA loan, your entitlement is restored and you can use it again. In some cases, you may even be able to have more than one VA loan at a time."
+    answer:
+      "Yes! Your VA loan benefit is reusable. Once you've paid off your VA loan, your entitlement is restored and you can use it again. In some cases, you may even be able to have more than one VA loan at a time.",
   },
   {
     question: "What types of properties can I buy with a VA loan?",
-    answer: "VA loans can be used to purchase single-family homes, condominiums (that are VA-approved), townhouses, manufactured homes, and multi-unit properties (up to 4 units) as long as you occupy one of the units as your primary residence."
-  }
+    answer:
+      "VA loans can be used to purchase single-family homes, condominiums (that are VA-approved), townhouses, manufactured homes, and multi-unit properties (up to 4 units) as long as you occupy one of the units as your primary residence.",
+  },
+];
+
+// this covers testimonials
+export const testimonials = [
+  {
+    id: 1,
+    quote:
+      "I've been working with these guys for a long time and I can say that my house is in the perfect hands.",
+    name: "Allan Collins",
+    job: "Software Engineer",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+  },
+  {
+    id: 2,
+    quote:
+      "Working with VZZ Mortgage is just great, every problem in my house is solved in a matter of days.",
+    name: "Clay Washington",
+    job: "Marketing Director",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+  },
+  {
+    id: 3,
+    quote:
+      "Once a pipe burst in my kitchen and an hour later it was already repaired, thanks to VZZ Mortgage.",
+    name: "Tanya Grant",
+    job: "Interior Designer",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+  },
+  {
+    id: 4,
+    quote:
+      "The team was professional, efficient, and went above and beyond. Highly recommend their services!",
+    name: "Michael Roberts",
+    job: "Business Owner",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+  },
+  {
+    id: 5,
+    quote:
+      "Best decision we made for our home renovation. The attention to detail was remarkable.",
+    name: "Sarah Martinez",
+    job: "Architect",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+  },
 ];
