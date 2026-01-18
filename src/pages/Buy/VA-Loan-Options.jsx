@@ -8,10 +8,10 @@ import {
   VASteps,
 } from "../../constants/constants";
 import CompactRatesComparison from "../../components/rates/Rates";
-import StepsToApprovals from "../../components/StepsToApprovals";
+import StepsToApprovals from "../../components/general/StepsToApprovals";
 import FAQSection from "../../components/contacts/faq";
 import CTASection from "../../components/contacts/FinalCTA";
-import NewsLetters from "../../components/NewsLetters";
+import NewsLetters from "../../components/general/NewsLetters";
 
 function VALoanOptions() {
   return (

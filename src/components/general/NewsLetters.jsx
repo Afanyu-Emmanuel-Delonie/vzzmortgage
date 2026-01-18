@@ -1,5 +1,5 @@
 import React from "react";
-import { newsArticles } from "../constants/constants";
+import { newsArticles } from "../../constants/constants";
 import { ArrowDown, ArrowRight } from "lucide-react";
 
 function NewsLetters() {
