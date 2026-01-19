@@ -207,7 +207,6 @@ function VALoanOptions() {
       steps={vaLoanSteps}
       footerText="Ready to use your VA benefits? Our specialists are here to help."
       ctaText="Talk to a VA Specialist"
-      onCtaClick={() => console.log('VA specialist clicked')}
     />
 
      <FAQSection

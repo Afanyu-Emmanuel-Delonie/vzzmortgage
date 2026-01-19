@@ -45,6 +45,8 @@ function Navbar() {
     });
   };
 
+  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
