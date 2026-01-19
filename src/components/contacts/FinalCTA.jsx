@@ -1,10 +1,11 @@
 import React from "react";
+import { useChatContext } from "../general/ChatContext";
 
 function CTASection({
   title = "Questions about your mortgage?",
   description = "Whether you're exploring your options or ready to apply, VZZ is here to answer your questions 24/7, no waiting, no pressure.",
-  primaryButton = { text: "Ask an Expert", onClick: () => {} },
-  secondaryButton = { text: "Chat Now", onClick: () => {} },
+  primaryButton = { text: "Ask an Expert", onClick: null, action: "contact" },
+  secondaryButton = { text: "Chat Now", onClick: null, action: "chat" },
   image = "/assets/img/hero.png",
   imageAlt = "Happy family in their new home",
   showImage = true,
@@ -12,6 +13,30 @@ function CTASection({
   primaryButtonColor = "#102044",
   accentColor = "#102044",
 }) {
+  const { openChat, goToContact } = useChatContext();
+
+  // Handle primary button click
+  const handlePrimaryClick = () => {
+    if (primaryButton.onClick) {
+      primaryButton.onClick();
+    } else if (primaryButton.action === "contact") {
+      goToContact();
+    } else if (primaryButton.action === "chat") {
+      openChat();
+    }
+  };
+
+  // Handle secondary button click
+  const handleSecondaryClick = () => {
+    if (secondaryButton.onClick) {
+      secondaryButton.onClick();
+    } else if (secondaryButton.action === "contact") {
+      goToContact();
+    } else if (secondaryButton.action === "chat") {
+      openChat();
+    }
+  };
+
   return (
     <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto w-full">
@@ -32,7 +57,7 @@ function CTASection({
             <div className="flex flex-col sm:flex-row gap-4">
               {primaryButton && (
                 <button
-                  onClick={primaryButton.onClick}
+                  onClick={handlePrimaryClick}
                   className="px-6 py-3 text-white rounded-lg hover:opacity-90 transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   style={{ backgroundColor: primaryButtonColor }}
                 >
@@ -42,7 +67,7 @@ function CTASection({
 
               {secondaryButton && (
                 <button
-                  onClick={secondaryButton.onClick}
+                  onClick={handleSecondaryClick}
                   className="px-6 py-3 text-gray-700 bg-gray-200 rounded-lg hover:bg-yellow-400 hover:border-yellow-400 hover:text-white transition-all duration-200 border-2 border-transparent font-medium"
                 >
                   {secondaryButton.text}

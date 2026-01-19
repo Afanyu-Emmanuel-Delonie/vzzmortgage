@@ -175,6 +175,63 @@ function CashOutRefinance() {
         ctaText="Talk to a Loan Expert"
       />
 
+      {/* trust builder section  */}
+      <div className="py-16 md:py-20 lg:py-24 px-5 md:px-10 lg:px-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-[#F8F9FA] py-12 md:py-16 px-6 md:px-12 rounded-xl">
+            {/* Header Section */}
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#111111] mb-4">
+                Secure the Lowest Refinance Mortgage Rate
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+                Stuck with a High Rate? We Got You.
+              </p>
+            </div>
+
+            {/* Benefits Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-12">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Rate Drop Alerts
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  Get notified instantly when rates hit your target. We monitor
+                  the market so you don't have to.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Zero Spam Promise
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  No pushy sales calls. No endless emails. Just timely updates
+                  when it matters most to your wallet.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Save Thousands
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  Lower rates mean lower monthly payments. Even a small drop can
+                  add up to major savings over time.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="text-center">
+              <button className="px-6 md:px-8 py-3 md:py-4 bg-[#102044] text-white rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get Rate Alerts
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <FAQSection
         title="Cash-Out Refinance FAQs"
         subtitle="Everything you need to know about cash-out refinancing"
@@ -190,6 +247,7 @@ function CashOutRefinance() {
         image="/assets/img/home_buying/home_equity.png"
         primaryButton={{
           text: "Talk to a Loan Expert",
+          action: "contact",
         }}
       />
     </section>

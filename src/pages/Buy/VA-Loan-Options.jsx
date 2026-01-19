@@ -236,6 +236,7 @@ function VALoanOptions() {
         image="/assets/img/home_buying/va-cta.png"
         primaryButton={{
           text: "Get VA Guidance",
+          action: "contact",
         }}
       />
     </section>

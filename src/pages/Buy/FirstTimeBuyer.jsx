@@ -420,8 +420,8 @@ function FirstTimeBuyer() {
                         {loan.name.includes("15")
                           ? "15 years"
                           : loan.name.includes("30")
-                          ? "30 years"
-                          : "5 years fixed, then adjustable"}
+                            ? "30 years"
+                            : "5 years fixed, then adjustable"}
                       </td>
                     ))}
                   </tr>
@@ -468,6 +468,7 @@ function FirstTimeBuyer() {
         description="Buying your first home can feel overwhelming. VZZ is here to help answer your questions anytime clearly and simply."
         primaryButton={{
           text: "Get Guidance",
+          action: "contact",
         }}
       />
     </section>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { customerAvatars } from "../../constants/constants";
 import MortgageCalculator from "../../components/calculator/MortgageCalculator";
@@ -11,9 +12,11 @@ import {
   MilitaryFocusedCTA,
 } from "../../constants/constants";
 import TestimonialSection from "../../components/general/Testimonials";
+import { href, useNavigate } from "react-router-dom";
 
 function Home() {
   const [hoveredId, setHoveredId] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <section className="overflow-hidden">
@@ -37,11 +40,15 @@ function Home() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-4 py-2 md:px-6 md:py-3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <button 
+                onClick={() => navigate('/Buyers')}
+                className="px-4 py-2 md:px-6 md:py-3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                   Buy a Home
                 </button>
 
-                <button className="px-4 py-2 md:px-6 md:py-3 text-gray-700 bg-gray-200 rounded-lg hover:bg-yellow-400 hover:border-yellow-400 hover:text-white hover:font-medium border-2 border-transparent">
+                <button 
+                onClick={() => navigate('/cash-out')}
+                className="px-4 py-2 md:px-6 md:py-3 text-gray-700 bg-gray-200 rounded-lg hover:bg-yellow-400 hover:border-yellow-400 hover:text-white hover:font-medium border-2 border-transparent">
                   Refinancing
                 </button>
               </div>
@@ -131,6 +138,7 @@ function Home() {
             {paths.map((path) => (
               <div
                 key={path.id}
+                onClick={() => navigate(path.href)}
                 onMouseEnter={() => setHoveredId(path.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer group overflow-hidden border border-gray-100"
@@ -194,7 +202,7 @@ function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
           </div>
 
-          {/* Content Section */}
+          {/* Content for first time home buyers Section */}
           <div className="flex flex-col w-full md:w-1/2">
             <h2 className="font-bold text-[#111111] mb-4 text-2xl md:text-3xl lg:text-4xl">
               Your First Home Starts With Confidence.
@@ -234,7 +242,7 @@ function Home() {
               ))}
             </ul>
 
-            <button className="px-6 py-3 w-full md:w-auto text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <button className="px-6 py-3 w-full md:w-1/3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               Start Journey
             </button>
           </div>
@@ -312,8 +320,6 @@ function Home() {
           </div>
         </div>
       </div>
-
-      <Contact />
 
       <TestimonialSection />
 
