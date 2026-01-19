@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MdCall,
   MdEmail,
@@ -22,6 +22,11 @@ function Contact() {
     closeNotification,
     setNotification,
   } = useContactForm();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <section className="py-16 px-5 md:px-10 lg:px-16 mb-15">

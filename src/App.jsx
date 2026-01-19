@@ -9,24 +9,25 @@ import NotFound from "./pages/NotFound";
 import FirstTimeBuyer from "./pages/Buy/FirstTimeBuyer";
 import VALoanOptions from "./pages/Buy/VA-Loan-Options";
 import CashOutRefinance from "./pages/Buy/CashOutRefinance";
+import { ChatProvider } from "./components/general/ChatContext";
+import Contact from "./components/contacts/Contact";
 
 function App() {
   return (
-    <>
+    <ChatProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/buyers" element={<Buyers />} />
+        <Route path="/contact" element={<Contact />} /> 
         <Route path="/first-time-buyer" element={<FirstTimeBuyer />} />
         <Route path="/VA-Loan-Options" element={<VALoanOptions />} />
         <Route path="/cash-out" element={<CashOutRefinance />} />
-
-        {/* The 404 Catch-all Route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ChatWidget />
-    </>
+    </ChatProvider>
   );
 }
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import { href } from "react-router-dom";
 import p1 from "/assets/img/profiles/p-1.png";
 import p2 from "/assets/img/profiles/p-2.png";
 import p3 from "/assets/img/profiles/p-3.png";
@@ -172,6 +174,7 @@ export const paths = [
     ),
     title: "Home Buying",
     badge: "Popular",
+    href: '/Buyers'
   },
   {
     id: 2,
@@ -192,6 +195,7 @@ export const paths = [
     ),
     title: "Refinancing",
     badge: "Save Money",
+    href: 'cash-out'
   },
   {
     id: 3,
@@ -212,6 +216,7 @@ export const paths = [
     ),
     title: "Home Equity",
     badge: "Flexible",
+    href: 'cash-out'
   },
   {
     id: 4,
@@ -232,6 +237,7 @@ export const paths = [
     ),
     title: "Rate & Payment",
     badge: "Calculate",
+    href: 'cash-out'
   },
 ];
 
