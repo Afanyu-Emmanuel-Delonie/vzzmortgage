@@ -16,18 +16,22 @@ const TestimonialSection = () => {
   } = useTestimonialCarousel(testimonials);
 
   return (
-    <div className="w-full py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-10 lg:px-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-4">
-            What our clients say about us
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Don't just take our word for it - hear from our satisfied customers
-          </p>
+    <div className="w-full py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
+      <div className="px-5 md:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-4">
+              What our clients say about us
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Don't just take our word for it - hear from our satisfied customers
+            </p>
+          </div>
         </div>
+      </div>
 
-        <div className="relative">
+      <div className="relative px-5 md:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto">
           <div className="hidden md:block">
             <button
               onClick={() => scroll('left')}
@@ -58,7 +62,7 @@ const TestimonialSection = () => {
           <div
             ref={scrollContainerRef}
             onScroll={checkScrollability}
-            className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory pb-4 -mx-2 px-2"
+            className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory pb-4"
           >
             {testimonials.map((testimonial) => (
               <div

@@ -8,6 +8,7 @@ import Buyers from "./pages/Buy/Buyers";
 import NotFound from "./pages/NotFound";
 import FirstTimeBuyer from "./pages/Buy/FirstTimeBuyer";
 import VALoanOptions from "./pages/Buy/VA-Loan-Options";
+import CashOutRefinance from "./pages/Buy/CashOutRefinance";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/buyers" element={<Buyers />} />
         <Route path="/first-time-buyer" element={<FirstTimeBuyer />} />
         <Route path="/VA-Loan-Options" element={<VALoanOptions />} />
+        <Route path="/cash-out" element={<CashOutRefinance />} />
 
         {/* The 404 Catch-all Route */}
         <Route path="*" element={<NotFound />} />

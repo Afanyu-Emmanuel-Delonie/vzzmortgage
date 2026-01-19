@@ -22,6 +22,10 @@ import {
   CheckCircle,
   Calculator,
   FileText,
+  MessageCircle,
+  ShieldCheck,
+  Receipt,
+  Handshake,
 } from "lucide-react";
 
 export const customerAvatars = [p1, p2, p3, p4];
@@ -31,7 +35,6 @@ export const navItems = [
   {
     id: 1,
     label: "Buy",
-    href: "/buyers",
     columns: [
       {
         title: "Buy A Home",
@@ -71,15 +74,13 @@ export const navItems = [
   {
     id: 2,
     label: "Refinance",
-    href: "/refinance",
     columns: [
       {
         title: "Refinance Options",
         links: [
-           { label: "Get Started", href: "/" },
+          { label: "Get Started", href: "/" },
           { label: "Refinance loan options", href: "/buyers" },
           { label: "Cash-out refinance", href: "/cash-out" },
-          { label: "Rate and term refinance", href: "/rate-term" },
           { label: "VA & military refi", href: "/VA-Loan-Options" },
         ],
       },
@@ -87,7 +88,6 @@ export const navItems = [
         title: "Debt Solutions",
         links: [
           { label: "Debt consolidation", href: "/debt-consolidation" },
-          { label: "How it works", href: "/debt/how-it-works" },
           { label: "Benefits & savings", href: "/debt/benefits" },
           { label: "Check eligibility", href: "/debt/eligibility" },
         ],
@@ -116,7 +116,6 @@ export const navItems = [
   {
     id: 4,
     label: "Loan Options",
-    href: "/loan-options",
     columns: [
       {
         title: "Conventional Loans",
@@ -390,6 +389,7 @@ export const tagStyles = {
   purple: "bg-purple-400/10 text-purple-700 border-purple-200",
 };
 
+// steps to loan approval 
 export const stepsToGettingApproved = [
   {
     id: 1,
@@ -446,6 +446,34 @@ export const vaLoanSteps = [
       "Complete the VA appraisal process and close on your home with zero down payment.",
   },
 ];
+
+export const cashOutRefinanceSteps = [
+  {
+    stepNo: "01",
+    title: "Review Your Equity",
+    description:
+      "See how much equity you may be able to access based on your home value and current loan balance.",
+  },
+  {
+    stepNo: "02",
+    title: "Compare Refinance Options",
+    description:
+      "Explore rates, terms, and cash-out amounts to find an option that fits your goals and budget.",
+  },
+  {
+    stepNo: "03",
+    title: "Apply & Share Documents",
+    description:
+      "Complete your application and provide basic information so your lender can verify details.",
+  },
+  {
+    stepNo: "04",
+    title: "Appraisal & Closing",
+    description:
+      "Finalize your refinance, complete the appraisal if needed, and receive your cash at closing.",
+  },
+];
+
 
 // this section will be covering the news letters
 export const newsArticles = [
@@ -734,6 +762,40 @@ export const vaLoanFaqs = [
   },
 ];
 
+export const cashOutRefinanceFaqs = [
+  {
+    question: "What is a cash-out refinance?",
+    answer:
+      "A cash-out refinance replaces your current mortgage with a new loan for a higher amount, allowing you to receive the difference in cash while keeping a single monthly payment.",
+  },
+  {
+    question: "Who can apply for a cash-out refinance?",
+    answer:
+      "Homeowners with sufficient equity in their property and a stable income can apply. Eligibility and loan terms may vary based on your credit, home value, and lender requirements.",
+  },
+  {
+    question: "Do I need a down payment for a cash-out refinance?",
+    answer:
+      "Typically, you don’t need a down payment beyond what you already owe, but your equity determines how much cash you can access. Some programs may have specific requirements.",
+  },
+  {
+    question: "What can I use the cash for?",
+    answer:
+      "Many homeowners use cash-out refinancing for home improvements, debt consolidation, major expenses, or other financial goals. The choice is yours.",
+  },
+  {
+    question: "Will my monthly payment increase?",
+    answer:
+      "Most likely, yes. Since your new loan balance is higher, your monthly payment may increase. Use a calculator to estimate your new payment and plan accordingly.",
+  },
+  {
+    question: "How long does the cash-out refinance process take?",
+    answer:
+      "The timeline varies by lender, but most cash-out refinances can be completed in 30–45 days, including application, appraisal, and closing.",
+  },
+];
+
+
 // this covers testimonials
 export const testimonials = [
   {
@@ -780,5 +842,58 @@ export const testimonials = [
     job: "Architect",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+  },
+];
+
+// refinancing section
+export const refinancing_paths = [
+  {
+    id: 1,
+    title: "Calculate My Cash-Out Amount",
+    icon: <Calculator className="w-full h-full" />,
+    badge: "Calculator",
+    href: "/calculator",
+  },
+  {
+    id: 2,
+    title: "See If I Qualify",
+    icon: <CheckCircle className="w-full h-full" />,
+    badge: "Quick Check",
+    href: "/eligibility",
+  },
+  {
+    id: 3,
+    title: "Explore Refinance Options",
+    icon: <FileText className="w-full h-full" />,
+    badge: "Learn More",
+    href: "/refinance-options",
+  },
+  {
+    id: 4,
+    title: "Talk to an Expert",
+    icon: <MessageCircle className="w-full h-full" />,
+    badge: "Get Help",
+    href: "/contact",
+  },
+];
+
+export const cashOutRefinanceTrustPoints = [
+  {
+    icon: ShieldCheck,
+    title: "Trusted, licensed experts",
+    description:
+      "Work with experienced mortgage professionals who guide you through every decision with clarity and care.",
+  },
+  {
+    icon: Receipt,
+    title: "Clear, upfront costs",
+    description:
+      "Understand your rates, fees, and options from the start so there are no surprises along the way.",
+  },
+  {
+    icon: Handshake,
+    title: "Support at every step",
+    description:
+      "From exploring options to closing your loan, we’re here to help you move forward with confidence.",
   },
 ];

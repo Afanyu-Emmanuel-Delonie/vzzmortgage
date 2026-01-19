@@ -16,15 +16,15 @@ function Home() {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <section>
+    <section className="overflow-hidden">
       {/* this is the hero section  */}
-      <div className="min-h-[600px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[65vh] flex items-center px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16">
+      <div className="min-h-[600px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[65vh] flex items-center px-5 md:px-10 lg:px-16 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="flex flex-col space-y-8 max-w-2xl">
               {/* Heading */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#111111] leading-tight ">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#111111] leading-tight">
                 Get Pre-Approved Before You{" "}
                 <span className="text-yellow-400">Search</span>
               </h1>
@@ -36,7 +36,7 @@ function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button className="px-4 py-2 md:px-6 md:py-3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                   Buy a Home
                 </button>
@@ -66,7 +66,6 @@ function Home() {
 
                 {/* Caption */}
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-1 mb-1"></div>
                   <p className="text-sm text-gray-700 font-medium font-inter">
                     Join{" "}
                     <span className="font-bold text-yellow-500">2,000+</span>{" "}
@@ -74,28 +73,6 @@ function Home() {
                   </p>
                 </div>
               </div>
-
-              {/* Trust Badges */}
-              {/* <div className="flex flex-wrap items-center gap-6 pt-2 opacity-70">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-sm text-gray-600 font-inter">No hidden fees</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-sm text-gray-600 font-inter">5-minute approval</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-sm text-gray-600 font-inter">Expert support</span>
-              </div>
-            </div> */}
             </div>
 
             {/* Right Image */}
@@ -111,9 +88,9 @@ function Home() {
               </div>
 
               {/* Floating Stats Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-[200px] border border-gray-100">
+              <div className="absolute -bottom-6 left-4 lg:-left-6 bg-white rounded-xl shadow-xl p-6 max-w-[200px] border border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-green-600"
                       fill="currentColor"
@@ -144,10 +121,10 @@ function Home() {
         </div>
       </div>
 
-      <div className="section py-10 bg-white">
-        <div className="container justify-center">
-          <h2 className="text-[#111111] text-center pb-15">
-            Choose Your path To Closing
+      <div className="py-10 md:py-14 lg:py-20 px-5 md:px-10 lg:px-16 bg-white">
+        <div className="max-w-7xl mx-auto w-full">
+          <h2 className="text-[#111111] text-center pb-8 md:pb-12 text-2xl md:text-3xl lg:text-4xl font-semibold">
+            Choose Your Path To Closing
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -219,7 +196,7 @@ function Home() {
 
           {/* Content Section */}
           <div className="flex flex-col w-full md:w-1/2">
-            <h2 className="font-bold text-[#111111] mb-4">
+            <h2 className="font-bold text-[#111111] mb-4 text-2xl md:text-3xl lg:text-4xl">
               Your First Home Starts With Confidence.
             </h2>
 
@@ -257,7 +234,7 @@ function Home() {
               ))}
             </ul>
 
-            <button className="px-6 py-3 w-full md:w-1/3 text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <button className="px-6 py-3 w-full md:w-auto text-white bg-[#102044] rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-medium font-inter shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               Start Journey
             </button>
           </div>
@@ -280,56 +257,58 @@ function Home() {
       </div>
 
       {/* trust builder section  */}
-      <div className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-10 lg:px-20 bg-white">
-        <div className="max-w-7xl mx-auto bg-[#F8F9FA] py-15 px-12 rounded-xl">
-          {/* Header Section */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#111111] mb-4">
-              Secure the Lowest Refinance Mortgage Rate
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-2">
-              Stuck with a High Rate? We Got You.
-            </p>
-          </div>
-
-          {/* Benefits Cards Grid */}
-          <div className="grid md:grid-cols-3 gap-4 md:gap-4 mb-10 md:mb-12">
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xm transition-shadow duration-300 border border-gray-100">
-              <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
-                Rate Drop Alerts
-              </h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                Get notified instantly when rates hit your target. We monitor
-                the market so you don't have to.
+      <div className="py-16 md:py-20 lg:py-24 px-5 md:px-10 lg:px-16 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-[#F8F9FA] py-12 md:py-16 px-6 md:px-12 rounded-xl">
+            {/* Header Section */}
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#111111] mb-4">
+                Secure the Lowest Refinance Mortgage Rate
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+                Stuck with a High Rate? We Got You.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xm transition-shadow duration-300 border border-gray-100">
-              <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
-                Zero Spam Promise
-              </h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                No pushy sales calls. No endless emails. Just timely updates
-                when it matters most to your wallet.
-              </p>
+            {/* Benefits Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-12">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Rate Drop Alerts
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  Get notified instantly when rates hit your target. We monitor
+                  the market so you don't have to.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Zero Spam Promise
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  No pushy sales calls. No endless emails. Just timely updates
+                  when it matters most to your wallet.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
+                  Save Thousands
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
+                  Lower rates mean lower monthly payments. Even a small drop can
+                  add up to major savings over time.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xm transition-shadow duration-300 border border-gray-100">
-              <h3 className="text-xl font-semibold text-[#111111] mb-3 md:mb-4 text-center">
-                Save Thousands
-              </h3>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed text-center">
-                Lower rates mean lower monthly payments. Even a small drop can
-                add up to major savings over time.
-              </p>
+            {/* CTA Button */}
+            <div className="text-center">
+              <button className="px-6 md:px-8 py-3 md:py-4 bg-[#102044] text-white rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Get Rate Alerts
+              </button>
             </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center">
-            <button className="px-6 md:px-8 py-3 md:py-4 bg-[#102044] text-white rounded-lg hover:bg-[#1a2f5f] transition-all duration-200 font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-              Get Rate Alerts
-            </button>
           </div>
         </div>
       </div>
